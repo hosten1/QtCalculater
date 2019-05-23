@@ -21,7 +21,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->setupUi(this);
 
-   /*
+    /*
     resize(600,400);
     QMenuBar *bar = menuBar();
 //    bar->setVisible(true);
@@ -56,48 +56,50 @@ MainWindow::MainWindow(QWidget *parent) :
 */
     connect(ui->actionnew,&QAction::triggered,this,[=](){
 
-      QString filePath =  QFileDialog::getOpenFileName(this,"打开文件","/Users/vrv2/Desktop/06  qt","*.txt");
-       qDebug()<<"ddddddddddddddddddddd"<<filePath;
+        QString filePath =  QFileDialog::getOpenFileName(this,"打开文件","/Users/vrv2/Desktop/06  qt","*.txt");
+        qDebug()<<"ddddddddddddddddddddd"<<filePath;
     });
-QGridLayout *gLayout = ui->gridLayout;
-tEdit =  ui->textEdit;
-tEdit->setFixedHeight(50);
-tEdit->setPlainText("0");
-ui->pushButton_16->setFixedHeight(60);
-ui->pushButton_17->setFixedHeight(60);
-gLayout->setRowStretch(0,120);
-gLayout->setColumnStretch(60,0);
-ui->pushButton->setFixedHeight(60);
-ui->pushButton_1->setFixedHeight(60);
-ui->pushButton_2->setFixedHeight(60);
-ui->pushButton_3->setFixedHeight(60);
-ui->pushButton_4->setFixedHeight(60);
-ui->pushButton_5->setFixedHeight(60);
-ui->pushButton_6->setFixedHeight(60);
-ui->pushButton_7->setFixedHeight(60);
-ui->pushButton_8->setFixedHeight(60);
-ui->pushButton_9->setFixedHeight(60);
-ui->pushButton_10->setFixedHeight(60);
-ui->pushButton_11->setFixedHeight(60);
-ui->pushButton_12->setFixedHeight(130);//等于号
-ui->pushButton_12->setFixedWidth(155);//等于号
-gLayout->addWidget(ui->pushButton_12,4,4,0,0);
-ui->pushButton_13->setFixedHeight(60);
-ui->pushButton_14->setFixedHeight(60);
-ui->pushButton_15->setFixedHeight(60);
-ui->pushButton_16->setFixedHeight(60);
-ui->pushButton_17->setFixedHeight(60);
-ui->pushButton_19->setFixedHeight(60);
-ui->pushButton_20->setFixedHeight(60);
-ui->pushButton_21->setFixedHeight(60);
+    QGridLayout *gLayout = ui->gridLayout;
+    tEdit =  ui->textEdit;
+    tEdit->setFixedHeight(50);
+    tEdit->setPlainText("0");
+    tEdit->setReadOnly(true);
+    tEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
+    ui->pushButton_16->setFixedHeight(60);
+    ui->pushButton_17->setFixedHeight(60);
+    gLayout->setRowStretch(0,120);
+    gLayout->setColumnStretch(60,0);
+    ui->pushButton->setFixedHeight(60);
+    ui->pushButton_1->setFixedHeight(60);
+    ui->pushButton_2->setFixedHeight(60);
+    ui->pushButton_3->setFixedHeight(60);
+    ui->pushButton_4->setFixedHeight(60);
+    ui->pushButton_5->setFixedHeight(60);
+    ui->pushButton_6->setFixedHeight(60);
+    ui->pushButton_7->setFixedHeight(60);
+    ui->pushButton_8->setFixedHeight(60);
+    ui->pushButton_9->setFixedHeight(60);
+    ui->pushButton_10->setFixedHeight(60);
+    ui->pushButton_11->setFixedHeight(60);
+    ui->pushButton_12->setFixedHeight(130);//等于号
+    ui->pushButton_12->setFixedWidth(155);//等于号
+    gLayout->addWidget(ui->pushButton_12,4,4,0,0);
+    ui->pushButton_13->setFixedHeight(60);
+    ui->pushButton_14->setFixedHeight(60);
+    ui->pushButton_15->setFixedHeight(60);
+    ui->pushButton_16->setFixedHeight(60);
+    ui->pushButton_17->setFixedHeight(60);
+    ui->pushButton_19->setFixedHeight(60);
+    ui->pushButton_20->setFixedHeight(60);
+    ui->pushButton_21->setFixedHeight(60);
 
-ui->pushButton->setText("±");
+    ui->pushButton->setText("±");
     //资源文件使用方式
-ui->actionnew->setIcon(QIcon("://a_j.png"));
+    ui->actionnew->setIcon(QIcon("://a_j.png"));
 
-connect(ui->actionnew,&QAction::triggered,this,[=](){
-    qDebug()<<"对话框";
-});
+    connect(ui->actionnew,&QAction::triggered,this,[=](){
+        qDebug()<<"对话框";
+    });
 
 
 
@@ -135,18 +137,18 @@ void MainWindow::on_pushButton_1_clicked(bool checked)//1
     }
     tEdit->setPlainText(str_text);
     tEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
-//    QString str = ui->pushButton_1->text();
-//    qDebug()<<"on_pushButton_1_toggled "<<str<<"checked ="<<checked;
-//    tEdit->setPlainText(str_text+str);
-//     tEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
-//     if(isCalcluted){
-//         QString cacStr = tEdit->toPlainText();
-//         QStringList list = cacStr.split(ch);
+    //    QString str = ui->pushButton_1->text();
+    //    qDebug()<<"on_pushButton_1_toggled "<<str<<"checked ="<<checked;
+    //    tEdit->setPlainText(str_text+str);
+    //     tEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
+    //     if(isCalcluted){
+    //         QString cacStr = tEdit->toPlainText();
+    //         QStringList list = cacStr.split(ch);
 
-//         b = list.last().toInt();
-//     }else {
-//          a = tEdit->toPlainText().toInt();
-//      }
+    //         b = list.last().toInt();
+    //     }else {
+    //          a = tEdit->toPlainText().toInt();
+    //      }
 }
 
 void MainWindow::on_pushButton_2_clicked()//2
@@ -159,19 +161,19 @@ void MainWindow::on_pushButton_2_clicked()//2
     }
     tEdit->setPlainText(str_text);
     tEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
-//    QString str_text = tEdit->toPlainText();
-//    QString str = ui->pushButton_2->text();
-//    qDebug()<<"on_pushButton_2_clicked "<<str;
-//    ui->textEdit->setPlainText(str_text+str);
-//     ui->textEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
-//     if(isCalcluted){
-//         QString cacStr =  ui->textEdit->toPlainText();
-//         QStringList list = cacStr.split(ch);
+    //    QString str_text = tEdit->toPlainText();
+    //    QString str = ui->pushButton_2->text();
+    //    qDebug()<<"on_pushButton_2_clicked "<<str;
+    //    ui->textEdit->setPlainText(str_text+str);
+    //     ui->textEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
+    //     if(isCalcluted){
+    //         QString cacStr =  ui->textEdit->toPlainText();
+    //         QStringList list = cacStr.split(ch);
 
-//         b = list.last().toInt();
-//     }else {
-//          a = ui->textEdit->toPlainText().toInt();
-//      }
+    //         b = list.last().toInt();
+    //     }else {
+    //          a = ui->textEdit->toPlainText().toInt();
+    //      }
 }
 
 
@@ -184,20 +186,20 @@ void MainWindow::on_pushButton_3_clicked()//3
         str_text = str_text + ui->pushButton_3->text();
     }
     tEdit->setPlainText(str_text);
-     tEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
-//    QString str_text = ui->textEdit->toPlainText();
-//    QString str = ui->pushButton_3->text();
-//    qDebug()<<"on_pushButton_3_clicked "<<str;
-//     ui->textEdit->setPlainText(str_text+str);
-//     ui->textEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
-//     if(isCalcluted){
-//         QString cacStr =  ui->textEdit->toPlainText();
-//         QStringList list = cacStr.split(ch);
+    tEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
+    //    QString str_text = ui->textEdit->toPlainText();
+    //    QString str = ui->pushButton_3->text();
+    //    qDebug()<<"on_pushButton_3_clicked "<<str;
+    //     ui->textEdit->setPlainText(str_text+str);
+    //     ui->textEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
+    //     if(isCalcluted){
+    //         QString cacStr =  ui->textEdit->toPlainText();
+    //         QStringList list = cacStr.split(ch);
 
-//         b = list.last().toInt();
-//     }else {
-//         a = ui->textEdit->toPlainText().toInt();
-//      }
+    //         b = list.last().toInt();
+    //     }else {
+    //         a = ui->textEdit->toPlainText().toInt();
+    //      }
 }
 
 
@@ -212,19 +214,19 @@ void MainWindow::on_pushButton_4_clicked()//4
     }
     tEdit->setPlainText(str_text);
     tEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
-//    QString str_text = ui->textEdit->toPlainText();
-//    QString str = ui->pushButton_4->text();
-//    qDebug()<<"on_pushButton_4_clicked "<<str;
-//    ui->textEdit->setPlainText(str_text+str);
-//     ui->textEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
-//     if(isCalcluted){
-//         QString cacStr =  ui->textEdit->toPlainText();
-//         QStringList list = cacStr.split(ch);
+    //    QString str_text = ui->textEdit->toPlainText();
+    //    QString str = ui->pushButton_4->text();
+    //    qDebug()<<"on_pushButton_4_clicked "<<str;
+    //    ui->textEdit->setPlainText(str_text+str);
+    //     ui->textEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
+    //     if(isCalcluted){
+    //         QString cacStr =  ui->textEdit->toPlainText();
+    //         QStringList list = cacStr.split(ch);
 
-//         b = list.last().toInt();
-//     }else {
-//         a = ui->textEdit->toPlainText().toInt();
-//      }
+    //         b = list.last().toInt();
+    //     }else {
+    //         a = ui->textEdit->toPlainText().toInt();
+    //      }
 }
 
 void MainWindow::on_pushButton_5_clicked()//5
@@ -236,21 +238,21 @@ void MainWindow::on_pushButton_5_clicked()//5
         str_text = str_text + "5";
     }
     tEdit->setPlainText(str_text);
-     tEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
+    tEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
 
-//    QString str_text = ui->textEdit->toPlainText();
-//    QString str = ui->pushButton_5->text();
-//    qDebug()<<"on_pushButton_5_clicked "<<str;
-//    ui->textEdit->setPlainText(str_text+str);
-//    ui->textEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
-//    if(isCalcluted){
-//        QString cacStr =  ui->textEdit->toPlainText();
-//        QStringList list = cacStr.split(ch);
+    //    QString str_text = ui->textEdit->toPlainText();
+    //    QString str = ui->pushButton_5->text();
+    //    qDebug()<<"on_pushButton_5_clicked "<<str;
+    //    ui->textEdit->setPlainText(str_text+str);
+    //    ui->textEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
+    //    if(isCalcluted){
+    //        QString cacStr =  ui->textEdit->toPlainText();
+    //        QStringList list = cacStr.split(ch);
 
-//        b = list.last().toInt();
-//    }else {
-//        a = ui->textEdit->toPlainText().toInt();
-//     }
+    //        b = list.last().toInt();
+    //    }else {
+    //        a = ui->textEdit->toPlainText().toInt();
+    //     }
 }
 
 void MainWindow::on_pushButton_6_clicked()//6
@@ -262,20 +264,20 @@ void MainWindow::on_pushButton_6_clicked()//6
         str_text = str_text + "6";
     }
     tEdit->setPlainText(str_text);
-     tEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
-//    QString str_text = ui->textEdit->toPlainText();
-//    QString str = ui->pushButton_6->text();
-//    qDebug()<<"on_pushButton_6_clicked "<<str;
-//    ui->textEdit->setPlainText(str_text+str);
-//     ui->textEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
-//     if(isCalcluted){
-//         QString cacStr =  ui->textEdit->toPlainText();
-//         QStringList list = cacStr.split(ch);
+    tEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
+    //    QString str_text = ui->textEdit->toPlainText();
+    //    QString str = ui->pushButton_6->text();
+    //    qDebug()<<"on_pushButton_6_clicked "<<str;
+    //    ui->textEdit->setPlainText(str_text+str);
+    //     ui->textEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
+    //     if(isCalcluted){
+    //         QString cacStr =  ui->textEdit->toPlainText();
+    //         QStringList list = cacStr.split(ch);
 
-//         b = list.last().toInt();
-//     }else {
-//         a = ui->textEdit->toPlainText().toInt();
-//      }
+    //         b = list.last().toInt();
+    //     }else {
+    //         a = ui->textEdit->toPlainText().toInt();
+    //      }
 }
 
 
@@ -288,20 +290,20 @@ void MainWindow::on_pushButton_7_clicked()//7
         str_text = str_text + "7";
     }
     tEdit->setPlainText(str_text);
-     tEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
-//    QString str_text = ui->textEdit->toPlainText();
-//    QString str = ui->pushButton_7->text();
-//    qDebug()<<"on_pushButton_7_clicked "<<str;
-//    ui->textEdit->setPlainText(str_text+str);
-//     ui->textEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
-//     if(isCalcluted){
-//         QString cacStr =  ui->textEdit->toPlainText();
-//         QStringList list = cacStr.split(ch);
+    tEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
+    //    QString str_text = ui->textEdit->toPlainText();
+    //    QString str = ui->pushButton_7->text();
+    //    qDebug()<<"on_pushButton_7_clicked "<<str;
+    //    ui->textEdit->setPlainText(str_text+str);
+    //     ui->textEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
+    //     if(isCalcluted){
+    //         QString cacStr =  ui->textEdit->toPlainText();
+    //         QStringList list = cacStr.split(ch);
 
-//         b = list.last().toInt();
-//     }else {
-//         a = ui->textEdit->toPlainText().toInt();
-//      }
+    //         b = list.last().toInt();
+    //     }else {
+    //         a = ui->textEdit->toPlainText().toInt();
+    //      }
 }
 void MainWindow::on_pushButton_8_clicked()//8
 {
@@ -312,20 +314,20 @@ void MainWindow::on_pushButton_8_clicked()//8
         str_text = str_text + "8";
     }
     tEdit->setPlainText(str_text);
-     tEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
-//    QString str_text = ui->textEdit->toPlainText();
-//    QString str = ui->pushButton_8->text();
-//    qDebug()<<"on_pushButton_8_clicked "<<str;
-//    ui->textEdit->setPlainText(str_text+str);
-//    ui->textEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
-//    if(isCalcluted){
-//        QString cacStr =  ui->textEdit->toPlainText();
-//        QStringList list = cacStr.split(ch);
+    tEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
+    //    QString str_text = ui->textEdit->toPlainText();
+    //    QString str = ui->pushButton_8->text();
+    //    qDebug()<<"on_pushButton_8_clicked "<<str;
+    //    ui->textEdit->setPlainText(str_text+str);
+    //    ui->textEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
+    //    if(isCalcluted){
+    //        QString cacStr =  ui->textEdit->toPlainText();
+    //        QStringList list = cacStr.split(ch);
 
-//        b = list.last().toInt();
-//    }else {
-//        a = ui->textEdit->toPlainText().toInt();
-//     }
+    //        b = list.last().toInt();
+    //    }else {
+    //        a = ui->textEdit->toPlainText().toInt();
+    //     }
 }
 
 void MainWindow::on_pushButton_9_clicked()//9
@@ -337,20 +339,20 @@ void MainWindow::on_pushButton_9_clicked()//9
         str_text = str_text + "9";
     }
     tEdit->setPlainText(str_text);
-     tEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
-//    QString str_text = ui->textEdit->toPlainText();
-//    QString str = ui->pushButton_9->text();
-//    qDebug()<<"on_pushButton_9_clicked "<<str;
-//    ui->textEdit->setPlainText(str_text+str);
-//    ui->textEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
-//    if(isCalcluted){
-//        QString cacStr =  ui->textEdit->toPlainText();
-//        QStringList list = cacStr.split(ch);
+    tEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
+    //    QString str_text = ui->textEdit->toPlainText();
+    //    QString str = ui->pushButton_9->text();
+    //    qDebug()<<"on_pushButton_9_clicked "<<str;
+    //    ui->textEdit->setPlainText(str_text+str);
+    //    ui->textEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
+    //    if(isCalcluted){
+    //        QString cacStr =  ui->textEdit->toPlainText();
+    //        QStringList list = cacStr.split(ch);
 
-//        b = list.last().toInt();
-//    }else {
-//        a = ui->textEdit->toPlainText().toInt();
-//     }
+    //        b = list.last().toInt();
+    //    }else {
+    //        a = ui->textEdit->toPlainText().toInt();
+    //     }
 
 }
 
@@ -364,7 +366,7 @@ void MainWindow::on_pushButton_13_clicked()//0
         str_text = str_text + "0";
     }
     tEdit->setPlainText(str_text);
-     tEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
+    tEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
 }
 void MainWindow::on_pushButton_10_clicked()//+
 {
@@ -375,20 +377,20 @@ void MainWindow::on_pushButton_10_clicked()//+
         str_text = str_text + "+";
     }
     tEdit->setPlainText(str_text);
-     tEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
-//    QString str_text = ui->textEdit->toPlainText();
-//    QString str = ui->pushButton_10->text();
-//    qDebug()<<"on_pushButton_10_clicked "<<str;
-//    ui->textEdit->setPlainText(str_text+str);
-//     ui->textEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
-//     if(!isCalcluted){
-//         if(str == "+"){
-//             ch = str;
-//             isCalcluted = true;
-//         }else{
-//             isCalcluted = false;
-//         }
-//     }
+    tEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
+    //    QString str_text = ui->textEdit->toPlainText();
+    //    QString str = ui->pushButton_10->text();
+    //    qDebug()<<"on_pushButton_10_clicked "<<str;
+    //    ui->textEdit->setPlainText(str_text+str);
+    //     ui->textEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
+    //     if(!isCalcluted){
+    //         if(str == "+"){
+    //             ch = str;
+    //             isCalcluted = true;
+    //         }else{
+    //             isCalcluted = false;
+    //         }
+    //     }
 
 }
 
@@ -401,66 +403,67 @@ void MainWindow::on_pushButton_11_clicked()//-
         str_text = str_text + "-";
     }
     tEdit->setPlainText(str_text);
-     tEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
-//    QString str_text = ui->textEdit->toPlainText();
-//    QString str = ui->pushButton_11->text();
-//    qDebug()<<"on_pushButton_11_clicked "<<str;
-//    ui->textEdit->setPlainText(str_text+str);
-//     ui->textEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
-//     if(!isCalcluted){
-//         if(str == "-"){
-//             ch = str;
-//             isCalcluted = true;
-//         }else{
-//             isCalcluted = false;
-//         }
-//     }
+    tEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
+    //    QString str_text = ui->textEdit->toPlainText();
+    //    QString str = ui->pushButton_11->text();
+    //    qDebug()<<"on_pushButton_11_clicked "<<str;
+    //    ui->textEdit->setPlainText(str_text+str);
+    //     ui->textEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
+    //     if(!isCalcluted){
+    //         if(str == "-"){
+    //             ch = str;
+    //             isCalcluted = true;
+    //         }else{
+    //             isCalcluted = false;
+    //         }
+    //     }
 }
 void MainWindow::on_pushButton_12_clicked()//=
 {
-      std::string inputTemp = tEdit->toPlainText().toStdString();
-      Calculate cal;
-      double value = cal.stringCalculate(inputTemp);
+    std::string inputTemp = tEdit->toPlainText().toStdString();
+    Calculate cal;
+    double value = cal.stringCalculate(inputTemp);
 
-      if(value != INT_MAX) {
-         QString str = tEdit->toPlainText()+"="+QString::number(value);
-         tEdit->setPlainText(str);
-      }else{
-         QString str = tEdit->toPlainText()+"="+"=syntax error";
-         tEdit->setPlainText(str);
-      }
+    if(value != INT_MAX) {
+        QString str = tEdit->toPlainText()+"="+QString::number(value);
+        tEdit->setPlainText(str);
+    }else{
+        QString str = tEdit->toPlainText()+"="+"=syntax error";
+        tEdit->setPlainText(str);
+    }
 
-//    QString str_text = ui->textEdit->toPlainText();
-//    QString str = ui->pushButton_12->text();
-//    qDebug()<<"on_pushButton_12_clicked "<<str;
-//    ui->textEdit->setPlainText(str_text+str);
-//    if(!isResulted){
-//        if(str == "="){
-//            int c = 0;
-//            if(ch == "+"){
-//                c = a+b;
-//            }else if (ch == "-"){
-//                c = a-b;
-//            }
-//            QString str_res = QString::number(a,10) +ch+QString::number(b,10)+"="+QString::number(c,10);
-//            ui->textEdit->setPlainText(str_res);
-//            qDebug()<<"on_pushButton_12_clicked "<<str_res;
-//        }
-//        isResulted = true;
-//    }else {
-//        isCalcluted = false;
-//        isResulted = false;
-//        a=0;
-//        b=0;
-//        ch="";
-//        ui->textEdit->setPlainText("");
-//    }
-
+    //    QString str_text = ui->textEdit->toPlainText();
+    //    QString str = ui->pushButton_12->text();
+    //    qDebug()<<"on_pushButton_12_clicked "<<str;
+    //    ui->textEdit->setPlainText(str_text+str);
+    //    if(!isResulted){
+    //        if(str == "="){
+    //            int c = 0;
+    //            if(ch == "+"){
+    //                c = a+b;
+    //            }else if (ch == "-"){
+    //                c = a-b;
+    //            }
+    //            QString str_res = QString::number(a,10) +ch+QString::number(b,10)+"="+QString::number(c,10);
+    //            ui->textEdit->setPlainText(str_res);
+    //            qDebug()<<"on_pushButton_12_clicked "<<str_res;
+    //        }
+    //        isResulted = true;
+    //    }else {
+    //        isCalcluted = false;
+    //        isResulted = false;
+    //        a=0;
+    //        b=0;
+    //        ch="";
+    //        ui->textEdit->setPlainText("");
+    //    }
+    tEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
 }
 
 void MainWindow::on_pushButton_16_clicked()//AC
 {
-   tEdit->setPlainText("");
+    tEdit->setPlainText("0");
+    tEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
 }
 
 void MainWindow::on_pushButton_17_clicked()//CE
@@ -468,18 +471,19 @@ void MainWindow::on_pushButton_17_clicked()//CE
     QString str_text = tEdit->toPlainText();
     str_text = str_text.left(str_text.length() - 1);
     tEdit->setPlainText(str_text);
+    tEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
 }
 
 void MainWindow::on_pushButton_clicked()//±
 {
-//    QString str_text = tEdit->toPlainText();
-//    if(str_text == "0"){
-//        str_text = ui->pushButton->text();
-//    }else {
-//        str_text = str_text + ui->pushButton_3->text();
-//    }
-//    tEdit->setPlainText(str_text);
-     tEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
+    //    QString str_text = tEdit->toPlainText();
+    //    if(str_text == "0"){
+    //        str_text = ui->pushButton->text();
+    //    }else {
+    //        str_text = str_text + ui->pushButton_3->text();
+    //    }
+    //    tEdit->setPlainText(str_text);
+    tEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
 }
 
 void MainWindow::on_pushButton_19_clicked()//X
@@ -491,7 +495,7 @@ void MainWindow::on_pushButton_19_clicked()//X
         str_text = str_text + "*";
     }
     tEdit->setPlainText(str_text);
-     tEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
+    tEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
 }
 
 void MainWindow::on_pushButton_20_clicked()//"/"
@@ -503,7 +507,7 @@ void MainWindow::on_pushButton_20_clicked()//"/"
         str_text = str_text + "/";
     }
     tEdit->setPlainText(str_text);
-     tEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
+    tEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
 }
 
 void MainWindow::on_pushButton_14_clicked()//.
@@ -515,7 +519,7 @@ void MainWindow::on_pushButton_14_clicked()//.
         str_text = str_text + ".";
     }
     tEdit->setPlainText(str_text);
-     tEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
+    tEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
 }
 
 void MainWindow::on_pushButton_15_clicked()//(
@@ -526,7 +530,7 @@ void MainWindow::on_pushButton_15_clicked()//(
         str_text = str_text + "(";
     }
     tEdit->setPlainText(str_text);
-     tEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
+    tEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
 
 }
 
