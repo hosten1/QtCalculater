@@ -198,16 +198,6 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="widget" native="true">
-    <property name="geometry">
-     <rect>
-      <x>359</x>
-      <y>99</y>
-      <width>571</width>
-      <height>241</height>
-     </rect>
-    </property>
-   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">

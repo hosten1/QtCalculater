@@ -10,18 +10,9 @@
 #include <QColorDialog>
 #include <QFileDialog>
 #include<iostream>
-using namespace std;
-#include<stack>
-#include<vector>
-#include<cstdlib>
-#include<limits.h>
-#pragma execution_character_set("utf-8")
-bool isNum(char ch);
-bool isOperate(char ch);
-int level(char ch);
-double scd(string s);
-double getValue(vector<string> V);
-vector<string> midToPost(string s);
+#include "calculate.h"
+
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -29,6 +20,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
 
     ui->setupUi(this);
+
    /*
     resize(600,400);
     QMenuBar *bar = menuBar();
@@ -426,9 +418,10 @@ void MainWindow::on_pushButton_11_clicked()//-
 }
 void MainWindow::on_pushButton_12_clicked()//=
 {
-      string inputTemp = tEdit->toPlainText().toStdString();
-      vector<string> expression = midToPost(inputTemp);
-      double value = getValue(expression);
+      std::string inputTemp = tEdit->toPlainText().toStdString();
+      Calculate cal;
+      double value = cal.stringCalculate(inputTemp);
+
       if(value != INT_MAX) {
          QString str = tEdit->toPlainText()+"="+QString::number(value);
          tEdit->setPlainText(str);
@@ -547,158 +540,4 @@ void MainWindow::on_pushButton_21_clicked()//)
     }
     tEdit->setPlainText(str_text);
     tEdit->moveCursor(QTextCursor::End,QTextCursor::MoveAnchor);
-}
-bool isNum(char ch) {
-    if(ch >= '0' && ch <= '9') return true;
-    else return false;
-}
-
-bool isOperate(char ch) {
-    if(ch == '+' || ch == '-' || ch == '*' || ch == '/' || ch == '(' || ch == ')')
-    return true;
-    else return false;
-}
-
-int level(char ch) {
-    switch(ch) {
-        case '(' :
-            return 5;
-        case '*' :
-            return 4;
-        case '/' :
-            return 4;
-        case '+' :
-            return 3;
-        case '-' :
-            return 3;
-        case ')':
-            return 2;
-    }
-}
-/*字符串转数字*/
-double scd(string s) {
-    if(s.length() == 0) return INT_MAX;
-
-    bool flag = false;
-    for(int i = 0; i < s.length(); i++) {
-        if(i == 0 && s[i] == '-') continue;
-        else if(s[i] == '.' && !flag) {
-            if(i > 0 && isNum(s[i-1])) {
-                flag = true;
-                continue;
-            }
-            else return INT_MAX;
-        }
-        else if(isNum(s[i])) continue;
-        else return INT_MAX;
-    }
-
-    double result = atof(s.c_str());
-    return result;
-}
-
- /*由中缀表达式得到后缀表达式, 向量V存储结果*/
-vector<string> midToPost(string s) {
-    stack<char> S; /*符号栈*/
-    vector<string> V; /*后缀表达式*/
-    int i = 0;
-    while(i < s.length()) {
-        if(isNum(s[i])) {
-            string str = "";
-            while(isNum(s[i]) || s[i] == '.') {
-                str += s[i];
-                i++;
-            }
-            V.push_back(str);
-        }
-
-        else if(isOperate(s[i])){
-            /*负数情况*/
-            if(s[i] == '-' && i > 0 && !isNum(s[i-1])) {
-                string str = "-"; i++;
-                while(isNum(s[i]) || s[i] == '.') {
-                    str += s[i]; i++;
-                }
-                V.push_back(str);
-            }else{
-                if(S.empty()){
-                    S.push(s[i]); i++;
-                }else {
-                    int initial = level(s[i]);
-                    if(initial == 2) {
-                        while(level(S.top()) != 5 && !s.empty()) {
-                            string str = "";
-                            str += S.top();
-                            V.push_back(str);
-                            S.pop();
-                        }
-                        if(S.top() == '(') S.pop(); i++;
-                    } else {
-                        while(!S.empty() && initial <= level(S.top()) && level(S.top()) != 5) {
-                            string str = "";
-                            str += S.top();
-                            V.push_back(str);
-                            S.pop();
-                        }
-                        S.push(s[i]); i++;
-                    }
-                }
-            }
-        }
-        else{
-            cout << "表达式出错" << endl;
-            V.clear();
-            return V;
-        }
-    }
-    while(!S.empty()) {
-        string str = ""; str += S.top();
-        S.pop();
-        V.push_back(str);
-    }
-    //for(int i = 0; i < V.size(); i++) cout << V[i] << "[]";
-    return V;
-}
-
-/*后缀表达式得到最终结果*/
-double getValue(vector<string> V) {
-    stack<double> S;
-    for(int i = 0; i < V.size(); i++) {
-    /*操作运算符*/
-        if(V[i].length() == 1 && isOperate(V[i][0])) {
-            double a = 0, b = 0;
-            if(!S.empty()) {
-                a = S.top(); S.pop();
-            }else return INT_MAX;
-
-            if(!S.empty()) {
-                b = S.top(); S.pop();
-            }else return INT_MAX;
-
-            switch(V[i][0]) {
-                case '+':
-                    S.push(b+a);
-                    break;
-                case '-':
-                    S.push(b-a);
-                    break;
-                case '*':
-                    S.push(b*a);
-                    break;
-                case '/':
-                    S.push(b/a);
-                    break;
-                default:
-                    return INT_MAX;
-            }
-        }else {
-            if(scd(V[i]) == INT_MAX) return INT_MAX;
-            else S.push(scd(V[i]));
-        }
-    }
-    if(S.empty()) return INT_MAX;
-
-    double value = S.top();
-    S.pop();
-    return value;
 }
